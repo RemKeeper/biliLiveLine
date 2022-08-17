@@ -411,8 +411,9 @@ func SetConfig(roomid string, printColor int, linekey string) bool {
 	if ReadConfigErr != nil {
 		fmt.Println("配置文件不存在，尝试创建")
 		_, ConfigErr := os.Create(lineupConfig)
-		if ConfigErr != nil {
-			fmt.Println("配置文件创建失败", ConfigErr.Error())
+		_, LineCreate := os.Create("./line.json")
+		if ConfigErr != nil || LineCreate != nil {
+			fmt.Println("配置文件创建失败", ConfigErr.Error(), LineCreate.Error())
 			return false
 		} else {
 			err := ioutil.WriteFile(lineupConfig, ConfigJson, 0666)
