@@ -283,6 +283,15 @@ func main() {
 								SetLine(lineup)
 								PrintLine(lineup, PrintColor, -1)
 							}
+							if BaeeageJson.Data.Room[i].Text == "取消排队" {
+								for lineCount, UserName := range lineup {
+									if UserName == BaeeageJson.Data.Room[i].Nickname {
+										lineup = append(lineup[:lineCount], lineup[lineCount+1:]...)
+									}
+								}
+								SetLine(lineup)
+								PrintLine(lineup, PrintColor, -1)
+							}
 						}
 					}
 				}
