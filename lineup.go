@@ -524,7 +524,7 @@ func keyboardCallBack(nCode int, wParam win32.WPARAM, lParam win32.LPARAM) win32
 	res, _ := win32.CallNextHookEx(kbHook, nCode, wParam, lParam)
 	return res
 }
-
+//这个注释是因为我想白嫖jb家的Goland,但是我这大便一样的单文件实在不知道更新什么了
 func indexHandler(w http.ResponseWriter, r *http.Request) {
 	var FontString string
 	dir, err := ioutil.ReadDir("./")
